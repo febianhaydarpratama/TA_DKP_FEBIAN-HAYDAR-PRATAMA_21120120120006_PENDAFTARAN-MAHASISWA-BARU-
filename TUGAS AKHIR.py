@@ -223,6 +223,3 @@ btn2 = Button(root, command = quit, text="EXIT", fg="red").place(x=40,y=300)
 
 
 root.mainloop()
-
-
-git remote add origin https://github.com/febianhaydarpratama/TA_DKP_FEBIAN-HAYDAR-PRATAMA_21120120120006_PENDAFTARAN-MAHASISWA-BARU-.git
