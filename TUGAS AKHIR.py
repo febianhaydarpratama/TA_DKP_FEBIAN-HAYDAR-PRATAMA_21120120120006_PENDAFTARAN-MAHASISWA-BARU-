@@ -4,14 +4,18 @@ from tkinter import ttk
 
 root = Tk()
 root.title("Pendaftaran Mahasiswa Baru")
-root.geometry("360x390")
+root.geometry("420x490")
 bg = PhotoImage(file="D:\\sementara\\logo-undip-transparan.png")
 lblogo = Label(root, image=bg)
-lblogo.place(x=30,y=20)
+lblogo.place(x=50,y=20)
+lbjudul = Label(root, text="Pendafataran Mahasiswa Baru",font=("helvetica 11 bold"), fg= "blue").place(x=107, y=10 )
+lbakademik = Label(root, text="Tahun Akademik 2021/2022",font=("helvetica 11 bold"), fg= "blue" ).place(x=123, y=30 )
 
 def pendaftaran():
     inputan = stringnama.get()
     input = stringtelepon.get()
+    inputaan = stringtempat.get()
+    errorcode = 0
     errorcode = 0
     errorcode = 0
     perdaftaran=""
@@ -55,6 +59,38 @@ def pendaftaran():
        return
     if stragama.get() == "":
        messagebox.showerror("Error","BELUM MEMILIH AGAMA")
+       return
+    if len(stringtempat.get()) == 0:
+       messagebox.showerror("Error","BELUM MENGISI TEMPAT LAHIR")
+       return
+    for i in range(len(inputaan)):
+        if inputaan[i:i+1] =='1':
+            errorcode = 1
+        elif inputaan[i:i+1] =='2':
+            errorcode = 1
+        elif inputaan[i:i+1] =='3' : 
+            errorcode = 1
+        elif inputaan[i:i+1] =='4' :
+            errorcode = 1
+        elif inputaan[i:i+1] =='5' :
+            errorcode = 1
+        elif inputaan[i:i+1] =='6' :
+            errorcode = 1
+        elif inputaan[i:i+1] =='7' :
+            errorcode = 1
+        elif inputaan[i:i+1] =='8' : 
+            errorcode = 1
+        elif inputaan[i:i+1] =='9' :
+            errorcode = 1
+        elif inputaan[i:i+1] =='0' :
+            errorcode = 1
+        elif inputaan=='': 
+            errorcode = 1
+    if errorcode != 0:
+        messagebox.showerror("Error","TIDAK BOLEH MEMASUKKAN NOMER")
+        return
+    if strtgl.get() == "":
+       messagebox.showerror("Error","BELUM MEMILIH TGL LAHIR")
        return
     if len(stringemail.get()) == 0:
        messagebox.showerror("Error","BELUM MENGISI ALAMAT EMAIL")
@@ -177,31 +213,44 @@ def pendaftaran():
 def quit():
     root.destroy()
 
-lbnama= Label(root, text = "Nama\t : ", font=("helvetica",10), bg="white").place(x=30,y=10)
-lbjurusan= Label(root, text = "Jurusan\t : ", font=("helvetica",10), bg="white").place(x=30,y=40)
-lbalamat = Label(root, text = "Alamat\t : ", font=("helvetica",10), bg="white").place(x = 30,y = 67)
-lbjk = Label(root, text = "Gender\t : ", font=("helvetica",10), bg="white").place(x = 30, y=95)
-lbagama = Label(text = "Agama\t : " , font=("helvetica",10), bg="white").place(x = 30, y=144)
-lbemail = Label(text = "Email\t : ", font=("helvetica",10), bg="white").place(x = 30, y=174)
-lbtelepon = Label(text = "Telepon\t : ", font=("helvetica",10), bg="white").place(x = 30, y=204)
-lbluniv = Label(text = "                     UNIVERSITAS DIPONEGORO\t                            ", font=("helvetica 10 bold")).place(x = 0, y=250)
+lbnama= Label(root, text = "Nama\t      : ", font=("helvetica",10), bg="white").place(x=30,y=90)
+lbjurusan= Label(root, text = "Jurusan\t      : ", font=("helvetica",10), bg="white").place(x=30,y=115)
+lbalamat = Label(root, text = "Alamat\t      : ", font=("helvetica",10), bg="white").place(x = 30,y = 140)
+lbjk = Label(root, text = "Gender\t      : ", font=("helvetica",10), bg="white").place(x = 30, y=165)
+lbagama = Label(root, text = "Agama\t       : " , font=("helvetica",10), bg="white").place(x = 30, y=220)
+lbtempat = Label(root, text = "Tempat Lahir  : " , font=("helvetica",10), bg="white").place(x = 30, y=245)
+lbtgl = Label(root, text = "Tanggal Lahir  : " , font=("helvetica",10), bg="white").place(x = 30, y=270)
+lbemail = Label(text = "Email\t       :" , font=("helvetica",10), bg="white").place(x = 30, y=295)
+lbtelepon = Label(text = "Telepon\t       : ", font=("helvetica",10), bg="white").place(x = 30, y=320)
+lbluniv = Label(text = "UNIVERSITAS DIPONEGORO", font=("Tahoma 12 bold"), fg = "grey").place(x = 100, y=390)
 
 stringnama = StringVar()
-inama = Entry(root,width = 30, textvariable=stringnama).place(x = 110, y = 11)  
+inama = Entry(root,width = 34, textvariable=stringnama).place(x = 150, y = 91)  
 stringalamat = StringVar()
-ialamat= Entry(root,width = 30, textvariable=stringalamat).place(x = 110, y = 71) 
+ialamat= Entry(root,width = 34, textvariable=stringalamat).place(x = 150, y = 141) 
+stringtempat = StringVar()
+itempat= Entry(root,width = 34, textvariable=stringtempat).place(x = 150, y = 246)
 stringemail = StringVar()
-iemail= Entry(root,width = 30, textvariable=stringemail).place(x = 110, y = 176) 
+iemail= Entry(root,width = 34, textvariable=stringemail).place(x = 150, y = 296) 
 stringtelepon = StringVar()
-itelepon= Entry(root,width = 30, textvariable=stringtelepon).place(x = 110, y = 206)
+itelepon= Entry(root,width = 34, textvariable=stringtelepon).place(x = 150, y = 321)
 
 
 strjurusan = StringVar() 
-Cb1 = ttk.Combobox(root, width = 27, textvariable = strjurusan, state="readonly")
-Cb1.place(x=110, y=40)
+Cb1 = ttk.Combobox(root, width = 31, textvariable = strjurusan, state="readonly")
+Cb1.place(x=150, y=116)
 stragama = StringVar() 
-Cb2 = ttk.Combobox(root, width = 27, textvariable = stragama, state="readonly")
-Cb2.place(x=110, y=144)
+Cb2 = ttk.Combobox(root, width = 31, textvariable = stragama, state="readonly")
+Cb2.place(x=150, y=221)
+strtgl = StringVar()
+Cb3 = ttk.Combobox(root, width = 3, textvariable = strtgl, state="readonly")
+Cb3.place(x=150, y=271)
+strtgl = StringVar()
+Cb4 = ttk.Combobox(root, width = 12, textvariable = strtgl, state="readonly")
+Cb4.place(x=196, y=271)
+strtgl = StringVar()
+Cb5 = ttk.Combobox(root, width = 7, textvariable = strtgl, state="readonly")
+Cb5.place(x=295, y=271)
 
 Cb1['values'] = ('Matematika',
                  'Fisika',
@@ -214,12 +263,71 @@ Cb2['values'] = ('ISLAM',
                  'BUDHA',
                  'HINDHU')
 
-radio = IntVar()
-R1 = Radiobutton(root, text="Pria      ", variable=radio, value=1 ).place(x=110, y=95)  
-R2 = Radiobutton(root, text="Wanita", variable=radio, value=2).place(x=110, y=115)
+Cb3['values'] = ('1',
+                 '2',
+                 '3',
+                 '4',
+                 '5',
+                 '6',
+                 '7',
+                 '8',
+                 '9',
+                 '10',
+                 '11',
+                 '12',
+                 '13',
+                 '14',
+                 '15',
+                 '16',
+                 '17',
+                 '18',
+                 '19',
+                 '20',
+                 '21',
+                 '22',
+                 '23',
+                 '24',
+                 '25',
+                 '26',
+                 '27',
+                 '28',
+                 '29',
+                 '30',
+                 '31')
+Cb4['values'] = ('JANUARI',
+                 'FEBRUARI',
+                 'MARET',
+                 'APRIL',
+                 'MEI',
+                 'JUNI',
+                 'JULI',
+                 'AGUSTUS',
+                 'SEPTEMBER',
+                 'OKTOBER',
+                 'NOVEMBER',
+                 'DESEMBER')
+Cb5['values'] = ('1991',
+                 '1992',
+                 '1993',
+                 '1994',
+                 '1995',
+                 '1996',
+                 '1997',
+                 '1998',
+                 '1999',
+                 '2000',
+                 '2001',
+                 '2002',
+                 '2003')
 
-btn1 = Button(root, command = pendaftaran, text="DAFTAR").place(x=260, y= 300)
-btn2 = Button(root, command = quit, text="EXIT", fg="red").place(x=40,y=300)
+radio = IntVar()
+R1 = Radiobutton(root, text="Pria      ", variable=radio, value=1 ).place(x=150, y=166)  
+R2 = Radiobutton(root, text="Wanita", variable=radio, value=2).place(x=150, y=185)
+
+btn1 = Button(root, command = pendaftaran, text="DAFTAR",  font=("helvetica 10 bold")).place(x=300, y= 440)
+btn2 = Button(root, command = quit, text="EXIT", fg="red",  font=("helvetica 10 bold")).place(x=60,y=440)
 
 
 root.mainloop()
+
+
